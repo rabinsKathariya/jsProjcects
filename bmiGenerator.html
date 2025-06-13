@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="webStyle.css">
+</head>
+<body>
+    <h1>BMI Calculator</h1>
+
+    <div class="labels">
+        <form>
+        <p class="smallLabel"><label class="label01">Height in cm:</label><input type="text" id="height"/></p>
+        <p class="smallLabel"><label class="label02">Weight in kg:</label><input type="text" id="weight"/></p>
+        <p class="smallLabel"><label class="result01">Result:</label><input type="text" id="result"/></p>
+        <div class="buttons">
+        <button class="bmiButton">Calculate</button>
+        </div>
+        </form>
+    </div>
+
+    <div class="guide">
+        <h2>BMI weight guide</h2>
+        <p>Under weight = less than 18.6</p>
+        <p>Normal range = 18.6 to 24.9</p>
+        <p>Over weight = Greater then 24.9</p>
+        </div>
+
+        <script>
+            const frm = document.querySelector('form')
+
+            frm.addEventListener('submit', (e) =>{
+                e.preventDefault()
+
+                const height = document.querySelector('#height')
+                const heightValue = parseInt(height.value)
+                const weight = document.querySelector('#weight')
+                const weightValue = parseInt(weight.value)
+                const input = document.querySelector('#result')
+
+                if ( isNaN(heightValue) && isNaN(weightValue)){
+                    alert('Please enter the valid height and weight')
+                }
+
+                else if(heightValue <= 0 && weightValue <= 0){
+                    alert('Please enter the valid height and weight')
+                }
+
+                else if(heightValue <= 0){
+                    alert('please enter the valid height')
+                }
+
+                else if(weightValue <= 0){
+                    alert('please enter the valid weight')
+                }
+
+                else if(isNaN(heightValue)){
+                    alert('please enter the valid height')
+                }
+                else if(isNaN(weightValue)){
+                    alert('please enter the valid weight')
+                }
+
+                else{
+               const totResult = (weightValue/((heightValue*heightValue)/10000)).toFixed(2);
+               input.value = `${totResult}`
+            }
+
+            })
+
+            
+            
+        </script>
+</body>
+</html>

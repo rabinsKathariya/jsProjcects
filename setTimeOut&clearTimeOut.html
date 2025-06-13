@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>My name is Rabins Kathariya</h1>
+    <button id="btn">Stop</button>
+</body>
+
+<script>
+    const myName = document.querySelector('h1')
+    const btn = document.querySelector('#btn')
+
+    const changeName = function (){
+        myName.innerHTML = 'I lives in baguliya'
+    }
+    const clearTime = setTimeout(changeName,3000)  //The global setTimeout() method sets a timer which executes a function or specified piece of code once the timer expires.
+
+    btn.addEventListener('click', function (){
+        clearTimeout(clearTime)  //The clearTimeout() method clears a timer set with the setTimeout() method.
+    })
+</script>
+</html>

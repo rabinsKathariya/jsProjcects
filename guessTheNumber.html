@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: azure;
+        }
+        h1{
+            color: rgb(8, 131, 172);
+        }
+        .note{
+            color: chocolate;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            font-size: 26px;
+            padding: 15px;
+        }
+        .label{
+            margin-top: 15px;
+        }
+        .inputField{
+            margin-top: 15px;
+            border: 1px solid black;
+            height: 35px;
+            width: 164px;
+            font-size: 22px;
+            padding: 4px;
+        }
+        .results{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            font-size: 26px;
+            padding: 15px;
+        }
+        .submitBtn{
+            margin-top: 15px;
+            width: 140px;
+            height: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid black;
+            background: linear-gradient(145deg,rgb(29, 231, 29),yellow) ;
+            
+        }
+        .smallBtn{
+            background-color: transparent;
+            border: none;
+            width: 140px;
+            height: 35px;
+            font-size: 17px;
+            
+        }
+        p{
+            margin-top: 15px;
+        }
+
+        @media (max-width:600px){
+            #mainForm{
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Number Guessing Game</h1>
+    <span class="note">Try and guess a random number between 1 to 100. You have 10 attemps to guess the right number.
+</span>
+    <form id="mainForm">
+        <label class="label">Guess a number</label><input type="text" class="inputField">
+        <!-- <input type="text" value="Submit guess" class="submitBtn"/>
+        </form> -->
+        <label class="submitBtn"><button class="smallBtn">Submit Guess</button></label>
+        <div class="results">
+        <p>Previous guesses:<span class="guesses"></span></p>
+        <p>Remaining guesses:<span class="remainingGuesses"> 10</span></p>
+        <p class="highAndLow"></p>
+        </div>
+    <script src="gussingGame.js"></script>
+</body>
+</html>

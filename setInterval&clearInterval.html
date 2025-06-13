@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            width: 150px;
+            height: 35px;
+            border: 1px solid black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2px;
+            font-size: 25px;
+            margin-bottom: 13px;
+        }
+        #mainBtn{
+            width: 154px;
+            height: 35px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .button{
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Digital clock</h1>
+    <h4>Tap start button to start the digital clock and tap stop button to stop the digital colck</h4>
+    <div class="main"></div>
+    <div id="mainBtn">
+    <button id="btn1" class = "button">Start</button>
+    <button id="btn2" class = "button">Stop</button>
+    </div>
+    
+
+<script>
+    const h1 = document.querySelector('h1')
+    const btn1 = document.querySelector('#btn1')
+    const btn2 = document.querySelector('#btn2')
+    const display = document.querySelector('.main')
+    const parentBtn = document.querySelector('#mainBtn')
+
+    let date ;
+    let newDate;
+    let interval;
+
+    
+    function startTime (){
+        if(interval==null){
+        interval = (setInterval(currentTime, 1000))
+        }
+        
+        function currentTime(){
+        date = new Date().toLocaleTimeString()
+        newDate = (display.innerHTML = `${date}`)
+        }
+}
+
+    function stopTime(){
+        clearInterval(interval)
+        interval = null;
+    }
+
+    btn1.addEventListener('click', startTime)
+    btn2.addEventListener('click', stopTime)
+</script>
+</body>
+</html>

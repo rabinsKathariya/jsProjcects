@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Auto background changer</h1>
+    <div id="mainBtn">
+        <button id="btn1">Start</button>
+        <button id="btn2">Stop</button>
+    </div>
+
+    <script>
+        const bdy = document.querySelector('body')
+        const startBtn = document.querySelector('#btn1')
+        const stopBtn = document.querySelector('#btn2')
+
+        let interval;
+
+        const randomColor = function(){
+        let hex = '0123456789ABCDEF'
+        let colorCode = '#'
+        for(let i=0; i<6; i++){
+            colorCode += hex[Math.floor(Math.random()*16)]  //hex[index]
+        }
+        return colorCode;
+    }
+        function changeBackgroundColor(){
+            if(interval == null){
+           interval = (setInterval(backgroundFunction, 1000))
+            }
+            function backgroundFunction(){
+                bdy.style.backgroundColor = randomColor()
+            }
+        }
+
+        function stopBackgroundchanger(){
+            clearInterval(interval)
+            interval = null;
+        }
+
+        startBtn.addEventListener('click', changeBackgroundColor)
+
+        stopBtn.addEventListener('click', stopBackgroundchanger)
+    </script>
+</body>
+</html>
